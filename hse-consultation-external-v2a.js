@@ -1,5 +1,5 @@
 // This script controls how different parts of a form are shown or hidden based on user interaction
-// This is an edit test. 
+// v2.1
 
 window.onload = function() {
     // Fetching dropdowns and checkboxes from the form
@@ -245,6 +245,35 @@ function displayCheckedCheckboxes() {
 
     // Append the "Referred Partners" input to the form
     form.appendChild(referredPartnersInput); // adding the new input to the form
+    
+    // Array of ways to sell
+var waysToSell = ['House-Buying Company', 'Traditional Auction', 'Modern Auction'];
+
+    //Now add "Partner Stage" field for each of the 3 sale methods. 
+    // For each way to sell
+    waysToSell.forEach(function(wayToSell) {
+    // Construct the field name by concatenating the strings. For example, for "House-Buying Company", the field name will be "Partner Stage (House-Buying Company)"
+    var fieldName = 'Partner Stage (' + wayToSell + ')';
+    
+    // If the way to sell is included in the recommendedWaysToSell array, set the field value to "Referred to partner", otherwise set it to "n/a"
+    var fieldValue = recommendedWaysToSell.includes(wayToSell) ? 'Referred to partner' : 'n/a';
+    
+    // Create a new hidden input element
+    var hiddenInput = document.createElement('input');
+    
+    // Set the type of the input to "hidden"
+    hiddenInput.type = 'hidden';
+    
+    // Set the name of the input to the field name
+    hiddenInput.name = fieldName;
+    
+    // Set the value of the input to the field value
+    hiddenInput.value = fieldValue;
+
+    // Append the hidden input to the form
+    form.appendChild(hiddenInput);
+});
+
 }
 
 // Add event listener to the button that opens the confirmation popup
