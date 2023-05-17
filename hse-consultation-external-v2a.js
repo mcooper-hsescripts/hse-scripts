@@ -1,5 +1,5 @@
 // This script controls how different parts of a form are shown or hidden based on user interaction
-// v2.1
+// v2.1a
 
 window.onload = function() {
     // Fetching dropdowns and checkboxes from the form
