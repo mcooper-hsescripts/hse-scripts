@@ -1,4 +1,5 @@
 // This script controls how different parts of a form are shown or hidden based on user interaction
+// This is an edit test. 
 
 window.onload = function() {
     // Fetching dropdowns and checkboxes from the form
